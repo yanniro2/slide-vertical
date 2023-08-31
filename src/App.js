@@ -2,8 +2,111 @@ import React, { useEffect } from "react";
 import gsap from "gsap";
 import "./App.css";
 function App() {
+  useEffect(() => {
+    var tl = gsap.timeline({
+      paused: true,
+      onStart: Frame,
+    });
+
+    tl.set("#est", { opacity: 0, y: 1800 });
+    tl.set("#logo", { opacity: 0, y: 260 });
+    tl.set(".word, .body-copy", { opacity: 0 });
+    tl.set("h1", { opacity: 0, y: 0 });
+    tl.set(".separator", { width: 0 });
+    tl.set("#W_Stroke", { opacity: 0 });
+
+    tl.to("#logo", {
+      duration: 1,
+      opacity: 1,
+      y: 360,
+      ease: "sine.inOut",
+    });
+
+    tl.fromTo(
+      "h1",
+      {
+        opacity: 0,
+        y: -100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.2,
+        ease: "sine.inOut",
+      }
+    );
+
+    tl.fromTo(
+      ".body-copy",
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "sine.inOut",
+        delay: -0.5,
+      }
+    );
+
+    tl.to(".separator", {
+      width: 234,
+      duration: 0.5,
+      ease: "sine.inOut",
+      delay: -0.5,
+      onComplete: wDrawing,
+    });
+
+    tl.to("#est", {
+      duration: 1,
+      opacity: 1,
+      y: 1752,
+      delay: -1.5,
+      ease: "sine.inOut",
+    });
+
+    tl.set("#est", { opacity: 1, delay: 8 }); // This just to delay until the next slide
+    tl.play();
+
+    tl.eventCallback("onComplete", function () {
+      outTl.play(0);
+    });
+  }, []);
+
+  function Frame(path) {
+    var path = document.querySelector("#frame");
+    var length = path.getTotalLength();
+
+    // Rest of the Frame function code
+  }
+
+  function wDrawing(path) {
+    var path = document.querySelector("#W_Stroke");
+    var length = path.getTotalLength();
+    gsap.set("#W_Stroke", { opacity: 1 });
+
+    // Rest of the wDrawing function code
+  }
+
+  var outTl = gsap.timeline({
+    onStart: frameOut,
+    paused: true,
+  });
+
+  // Rest of the outTl animations
+
+  function frameOut(path) {
+    var path = document.querySelector("#frame");
+    var length = path.getTotalLength();
+
+    // Rest of the frameOut function code
+  }
+
   return (
-    <div>
+    <div className="animation-container">
       <div className="screen">
         <div className="mask">
           <div className="copy">
@@ -257,9 +360,6 @@ function App() {
           </svg>
         </div>
       </div>
-
-      <script src="gsap.min.js"></script>
-      <script src="index.js"></script>
     </div>
   );
 }
