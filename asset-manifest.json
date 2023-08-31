@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/slide-vertical/static/css/main.64f39432.css",
+    "main.js": "/slide-vertical/static/js/main.7dea8920.js",
+    "static/js/787.d0b9c65a.chunk.js": "/slide-vertical/static/js/787.d0b9c65a.chunk.js",
+    "static/media/GillSansNovaBook.woff": "/slide-vertical/static/media/GillSansNovaBook.941807f6982a748e9a72.woff",
+    "static/media/gillsansnovamedium-webfont.woff": "/slide-vertical/static/media/gillsansnovamedium-webfont.389bda055f3a3011fb87.woff",
+    "index.html": "/slide-vertical/index.html",
+    "main.64f39432.css.map": "/slide-vertical/static/css/main.64f39432.css.map",
+    "main.7dea8920.js.map": "/slide-vertical/static/js/main.7dea8920.js.map",
+    "787.d0b9c65a.chunk.js.map": "/slide-vertical/static/js/787.d0b9c65a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.64f39432.css",
+    "static/js/main.7dea8920.js"
+  ]
+}
